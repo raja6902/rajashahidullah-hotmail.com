@@ -27,7 +27,7 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 		Flavor[] flav = { Flavor.BANANA, Flavor.CHOCOLATE, Flavor.LEMON, Flavor.MOKKA, Flavor.MOKKA, Flavor.PISTACHE,
 				Flavor.STRACIATELA, Flavor.STRAWBERRY, Flavor.VANILA };
 		for (Flavor f : Flavor.values()) {
-			double x = (f.getbasicValue()) - (pl.getBallPrice());
+			double x =  pl.getBallPrice()-f.getbasicValue();
 			totalProfit += x;
 
 		}
@@ -42,7 +42,7 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 		MagnumType[] mag = { MagnumType.ALPINENUTS, MagnumType.BLACKCHOCOLATE, MagnumType.MILKCHOCOLATE,
 				MagnumType.ROMANTICSTRAWBERRIES, MagnumType.WHITECHOCOLATE };
 		for (MagnumType m : MagnumType.values()) {
-			double x = (m.getBasicValue()) - (pl.getMagnumPrice(Type));
+			double x =  pl.getMagnumPrice(Type)- m.getBasicValue();
 			totalProfit += x;
 		}
 		return new Magnum(Type);

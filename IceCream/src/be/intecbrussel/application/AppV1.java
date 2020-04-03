@@ -31,7 +31,7 @@ public class AppV1 {
 		    icc.orderIceRocket();
 		    icc.getProfit(); 
 		    icc.toString();// for profit
-		    
+		    System.out.println(icc.getProfit());
 		    
 		
 		}
