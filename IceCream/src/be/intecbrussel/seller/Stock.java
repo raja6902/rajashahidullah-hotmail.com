@@ -1,52 +1,48 @@
 package be.intecbrussel.seller;
 
+public class Stock extends Exception {
 
+	private int iceRocket;
+	private int cones;
+	private int balls;
+	private int magni;
 
-	public class Stock extends Exception {
+	public int getIceRocket() {
+		return iceRocket;
+	}
 
-		private int iceRocket ;
-		private int cones;
-		private int balls;
-		private int magni;
+	public void setIceRocket(int iceRocket) {
+		this.iceRocket = iceRocket;
+	}
 
-		public int getIceRocket() {
-			return iceRocket;
-		}
+	public int getCones() {
+		return cones;
+	}
 
-		public void setIceRocket(int iceRocket) {
-			this.iceRocket = iceRocket;
-		}
+	public void setCones(int cones) {
+		this.cones = cones;
+	}
 
-		public int getCones() {
-			return cones;
-		}
+	public int getBalls() {
+		return balls;
+	}
 
-		public void setCones(int cones) {
-			this.cones = cones;
-		}
+	public void setBalls(int balls) {
+		this.balls = balls;
+	}
 
-		public int getBalls() {
-			return balls;
-		}
+	public int getMagni() {
+		System.out.println(magni);
+		return magni;
+	}
 
-		public void setBalls(int balls) {
-			this.balls = balls;
-		}
+	public void setMagni(int magni) {
+		this.magni = magni;
+	}
 
-		public int getMagni() {
-			System.out.println(magni);
-			return magni;
-		}
+	@Override
+	public String toString() {
+		return "No More Ice Cream";
 
-		public void setMagni(int magni) {
-			this.magni = magni;
-		}
-
-	//	@Override
-	//	public String toString() {
-	//		return "No More Ice Cream";
-
-		}
-
-	
-
+	}
+}
