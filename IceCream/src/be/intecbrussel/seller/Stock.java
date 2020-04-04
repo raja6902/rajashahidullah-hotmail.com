@@ -4,7 +4,7 @@ package be.intecbrussel.seller;
 
 	public class Stock extends Exception {
 
-		private int iceRocket;
+		private int iceRocket ;
 		private int cones;
 		private int balls;
 		private int magni;
@@ -34,6 +34,7 @@ package be.intecbrussel.seller;
 		}
 
 		public int getMagni() {
+			System.out.println(magni);
 			return magni;
 		}
 
@@ -41,11 +42,11 @@ package be.intecbrussel.seller;
 			this.magni = magni;
 		}
 
-		@Override
-		public String toString() {
-			return "No More Ice Cream";
+	//	@Override
+	//	public String toString() {
+	//		return "No More Ice Cream";
 
 		}
 
-	}
+	
 

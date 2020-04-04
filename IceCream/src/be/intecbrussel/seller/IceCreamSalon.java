@@ -32,11 +32,11 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 
 		}
 
-		return new Cone(flav);
+		return new Cone(balls);
 	}
 
 	@Override
-	public Magnum orderMagnumm(MagnumType Type) {
+	public Magnum orderMagnum(MagnumType Type) {
 		PriceList pl = new PriceList();
 		Magnum magnum = new Magnum();
 		MagnumType[] mag = { MagnumType.ALPINENUTS, MagnumType.BLACKCHOCOLATE, MagnumType.MILKCHOCOLATE,
@@ -55,5 +55,8 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 		totalProfit += 1.00;
 		return new IceRocket();
 	}
-
+	@Override
+	public String toString(){
+		return String.format(" the profit is € %.3f   ", totalProfit);
+}
 }

@@ -15,10 +15,10 @@ public class AppV1 {
 	public static void main(String[] args) {
 		PriceList pl= new  PriceList(6.00,7.00,8.50);
 		
-		IceCreamSalon icc = new IceCreamSalon(pl);
+		IceCreamSalon ics = new IceCreamSalon(pl);
 		Cone.Flavor[]  flavours= { Flavor.BANANA, Flavor.CHOCOLATE, Flavor.MOKKA}; 
-		Magnum magnum = icc.orderMagnumm(MagnumType.ALPINENUTS);
-		                  icc.orderMagnumm(MagnumType.MILKCHOCOLATE);
+		Magnum magnum = ics.orderMagnum(MagnumType.ALPINENUTS);
+		                  ics.orderMagnum(MagnumType.MILKCHOCOLATE);
 		                  
 		    magnum.eat();  // Flavor chosen randomly 
 		    magnum.eat();
@@ -26,12 +26,16 @@ public class AppV1 {
 		    cone.eat();
 		    cone.eat();
 		    System.out.println("-----------------------------------");
-		    icc.orderIceRocket();
-		    icc.orderIceRocket();
-		    icc.orderIceRocket();
-		    icc.getProfit(); 
-		    icc.toString();// for profit
-		    System.out.println(icc.getProfit());
+		    ics.orderIceRocket();
+		    ics.orderIceRocket();
+		    ics.orderIceRocket();
+		    ics.orderCone(flavours.clone());
+		    ics.orderMagnum(MagnumType.ALPINENUTS);
+		    ics.orderMagnum(MagnumType.MILKCHOCOLATE);
+		    ics.getProfit(); 
+		    ics.toString();// for profit
+		    System.out.println(ics.getProfit());
+		    System.out.println(ics.toString());
 		    
 		
 		}

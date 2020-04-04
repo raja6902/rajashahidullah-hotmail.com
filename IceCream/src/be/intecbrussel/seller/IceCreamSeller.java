@@ -10,6 +10,6 @@ public interface IceCreamSeller extends Profitable {
 
 	public Cone orderCone(Flavor[] flavor);
 	public IceRocket orderIceRocket();
-	public Magnum orderMagnumm(MagnumType Type);
+	public Magnum orderMagnum(MagnumType Type);
 	
 }

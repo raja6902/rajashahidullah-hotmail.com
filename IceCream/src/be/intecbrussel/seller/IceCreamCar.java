@@ -21,7 +21,7 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 
 	private Cone prepareCone(Flavor[] balls) {
 
-		System.out.println("Ice cream mixture be kept below 5 degrees");
+		System.out.println("Sorry no more Cone Ice cream");
 
 		return new Cone(balls);
 	}
@@ -45,40 +45,45 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 				int newStockCone = oldStockCone - 1;
 				stock.setCones(oldStockCone);
 			}
-			System.out.println("No more Ice Cream");
+			return prepareCone(balls);
 
 		}
-		prepareCone(balls);
+		
 		return new Cone();
 
 	}
 
-	private Magnum prepareMagnum(MagnumType Type) {
-		System.out.println("mixture for Magnum ice cream is being prepared");
-		return new Magnum();
+	private Magnum prepareMagnum(MagnumType type) {
+		System.out.println("Sorry no more Magnum Ice cream");
+	
+		return new Magnum(type);
 	}
 
-	@Override
-	public Magnum orderMagnumm(MagnumType Type) {
-		for (MagnumType mag : MagnumType.values()) {
+	
+	public Magnum orderMagnum(MagnumType type) {
+		
 		PriceList pl = new PriceList();
-		
-		double x =  pl.getMagnumPrice(Type)-mag.getBasicValue();
+		for (MagnumType mag : MagnumType.values()) {
+			
+		double x =  pl.getMagnumPrice(type)-mag.getBasicValue();
 		profit += x;
-		
-		
-			if (stock.getMagni() > 0) {
-				
-				int oldStockMagni = stock.getMagni();
-				int newStockMagni = oldStockMagni - 1;
-				stock.setMagni(oldStockMagni);
-
-			}
-			System.out.println("No more Ice Cream");
 		}
-		prepareMagnum(Type);
-		return new Magnum(Type);
+		int oldStockMagnum = stock.getMagni();
+		int newStockMagnum = oldStockMagnum - 1;
+		stock.setMagni(oldStockMagnum);
+		
+			if (stock.getMagni() < 1) {
+				
+				
+			
+			return prepareMagnum(type);
+			//}else {
+			}
+
+		return new Magnum(type);
+	
 	}
+	
 
 	@Override
 	public double getProfit() {
@@ -87,7 +92,7 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	}
 
 	private IceRocket prepareRocket() {
-		System.out.println("Icerocket must be kept below freezing temp");
+		System.out.println("Sorry no more ice Rocket !");
 
 		return new IceRocket();
 	}
@@ -96,14 +101,15 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	public IceRocket orderIceRocket() {
 		profit += 0.50;
 		PriceList pl = new PriceList();
-		if (stock.getIceRocket() > 0) {
+		if (stock.getIceRocket() < 1) {
 			int oldStockIceRockets = stock.getIceRocket();
 			int newStockIceRockets = oldStockIceRockets - 1;
 			stock.setIceRocket(oldStockIceRockets);
-
+		
 			
-			System.out.println("sorry no more ice cream");
-		}
+			return prepareRocket();
+	}
+
 		prepareRocket();
 		return new IceRocket();
 	}
