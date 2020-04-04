@@ -117,5 +117,6 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	public String toString(){
 		return String.format(" the profit is € %.3f   ", profit);
 	}
+ 
 }
 
