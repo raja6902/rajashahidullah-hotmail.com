@@ -110,7 +110,7 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 			return prepareRocket();
 	}
 
-		prepareRocket();
+		
 		return new IceRocket();
 	}
 	@Override
