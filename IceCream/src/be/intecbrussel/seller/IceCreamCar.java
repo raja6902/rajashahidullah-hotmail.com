@@ -21,68 +21,63 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 
 	private Cone prepareCone(Flavor[] balls) {
 
-		System.out.println("Sorry no more Cone Ice cream");
+		System.out.println("Ice cream being prepared");
 
 		return new Cone(balls);
 	}
 
 	@Override
 	public Cone orderCone(Flavor[] balls) {
-  
-		for (Flavor f : balls) {
-		PriceList pl = new PriceList();
-		double x =   pl.getBallPrice(balls)-f.getbasicValue();
-			
-		profit += x;
-		
-		
+		try {
+			for (Flavor f : balls) {
+				PriceList pl = new PriceList();
+				double x = pl.getBallPrice(balls) - f.getbasicValue();
 
-			if (stock.getCones() < 1) {
-				
-
-				int oldStockCone = stock.getCones();
-				int newStockCone = oldStockCone - 1;
-				stock.setCones(oldStockCone);
+				profit += x;
 			}
+
+		} catch (NoMoreIceCreamException e) {
+			e.printStackTrace();
 			return prepareCone(balls);
 
 		}
-		
+
+		 
+
 		return new Cone(balls);
 
 	}
 
 	private Magnum prepareMagnum(MagnumType type) {
-		System.out.println("Sorry no more Magnum Ice cream");
-	
+		System.out.println("ice cream being prepared");
+
 		return new Magnum(type);
 	}
 
-	
 	public Magnum orderMagnum(MagnumType type) {
-		
+    try {
 		PriceList pl = new PriceList();
 		for (MagnumType mag : MagnumType.values()) {
-			
-		double x =  pl.getMagnumPrice(type)-mag.getBasicValue();
-		profit += x;
+
+			double x = pl.getMagnumPrice(type) - mag.getBasicValue();
+			profit += x;
 		}
-		int oldStockMagnum = stock.getMagni();
-		int newStockMagnum = oldStockMagnum - 1;
-		stock.setMagni(oldStockMagnum);
-		
-			if (stock.getMagni() < 1) {
-				
-				
-			
+		}catch(NoMoreIceCreamException e) {
+			e.printStackTrace();
 			return prepareMagnum(type);
-			
-			}
+		}
+		
+		 
+		
+
+		
+
+    
 
 		return new Magnum(type);
-	
+    
+
 	}
-	
 
 	@Override
 	public double getProfit() {
@@ -100,20 +95,15 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	public IceRocket orderIceRocket() {
 		profit += 0.50;
 		PriceList pl = new PriceList();
-		if (stock.getIceRocket() < 0) {
-			
-			int oldStockIceRocket= stock.getIceRocket();
-			int newStockIceRocket = oldStockIceRocket - 1;
-			stock.setIceRocket(oldStockIceRocket);
-			
-			
-			return prepareRocket();
-	}
+		Stock st = new Stock();
+		if(st.getIceRocket()<0) {
+	
 
-		
-		return new IceRocket();
-	}
-	 
-	}
- 
+			return prepareRocket();
+		}
+             return new IceRocket();
+	
+
+}
+}
 

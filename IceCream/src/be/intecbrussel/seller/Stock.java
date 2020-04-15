@@ -6,8 +6,19 @@ public class Stock extends Exception {
 	private int cones;
 	private int balls;
 	private int magni;
-     
+
 	public int getIceRocket() {
+	try {
+		if(iceRocket < 0) {
+
+			int oldStockIceRocket = this.getIceRocket();
+			int newStockIceRocket = oldStockIceRocket - 1;
+			this.setIceRocket(oldStockIceRocket);
+			throw new NoMoreIceCreamException();
+		}
+	}catch(NoMoreIceCreamException e) {
+			e.printStackTrace();
+		}
 		return iceRocket;
 	}
 
@@ -16,6 +27,19 @@ public class Stock extends Exception {
 	}
 
 	public int getCones() {
+		try {
+			if(cones < 0) {
+				int oldStockCone = this.getCones();
+				int newStockCone = oldStockCone - 1;
+				this.setCones(oldStockCone);
+
+				throw new NoMoreIceCreamException();
+			}
+		}catch(NoMoreIceCreamException e) {
+				e.printStackTrace();
+			}
+		
+		
 		return cones;
 	}
 
@@ -24,6 +48,13 @@ public class Stock extends Exception {
 	}
 
 	public int getBalls() {
+		try {
+			if(balls < 0) {
+				throw new NoMoreIceCreamException();
+			}
+		}catch(NoMoreIceCreamException e) {
+				e.printStackTrace();
+			}
 		return balls;
 	}
 
@@ -32,7 +63,19 @@ public class Stock extends Exception {
 	}
 
 	public int getMagni() {
-		System.out.println(magni);
+	try {
+		if(magni < 0) {
+			int oldStockMagnum = this.getMagni();
+			int newStockMagnum = oldStockMagnum - 1;
+			this.setMagni(oldStockMagnum);
+
+			throw new NoMoreIceCreamException();
+		}
+	}catch(NoMoreIceCreamException e) {
+			e.printStackTrace();
+		}
+	
+		
 		return magni;
 	}
 
@@ -40,9 +83,7 @@ public class Stock extends Exception {
 		this.magni = magni;
 	}
 
-	@Override
-	public String toString() {
-		return "No More Ice Cream";
+	
 
 	}
-}
+
