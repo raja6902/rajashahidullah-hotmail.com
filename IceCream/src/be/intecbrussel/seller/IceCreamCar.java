@@ -76,7 +76,7 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 				
 			
 			return prepareMagnum(type);
-			//}else {
+			
 			}
 
 		return new Magnum(type);
