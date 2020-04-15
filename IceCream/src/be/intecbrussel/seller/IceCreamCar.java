@@ -101,11 +101,12 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	public IceRocket orderIceRocket() {
 		profit += 0.50;
 		PriceList pl = new PriceList();
-		if (stock.getIceRocket() < 1) {
-			int oldStockIceRockets = stock.getIceRocket();
-			int newStockIceRockets = oldStockIceRockets - 1;
-			stock.setIceRocket(oldStockIceRockets);
-		
+		if (stock.getIceRocket() < 0) {
+			
+			int oldStockIceRocket= stock.getIceRocket();
+			int newStockIceRocket = oldStockIceRocket - 1;
+			stock.setIceRocket(oldStockIceRocket);
+			
 			
 			return prepareRocket();
 	}
@@ -113,10 +114,7 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 		
 		return new IceRocket();
 	}
-	@Override
-	public String toString(){
-		return String.format(" the profit is € %.3f   ", profit);
+	 
 	}
  
-}
 

@@ -27,14 +27,18 @@ public class Magnum implements Eatable{
 	}
 	@Override
 	public void eat() {
-		MagnumType[] magnum = MagnumType.values();
-		Random random = new Random();
-		int randmag = random.nextInt(magnum.length);
-		System.out.println("I am eating "+ " "  + magnum[randmag]);
+		System.out.println("I am eating" + getType());
+		
+	
 		
 	}
+	public MagnumType getType() {
+		return type;
+	}
+
+	}
 	
-}
+
 	
 	
 	

@@ -6,13 +6,13 @@ public class Stock extends Exception {
 	private int cones;
 	private int balls;
 	private int magni;
-
+     
 	public int getIceRocket() {
 		return iceRocket;
 	}
 
 	public void setIceRocket(int iceRocket) {
-		this.iceRocket = iceRocket;
+		iceRocket = iceRocket;
 	}
 
 	public int getCones() {

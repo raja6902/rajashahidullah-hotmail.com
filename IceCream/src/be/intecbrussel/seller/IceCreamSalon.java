@@ -21,31 +21,27 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 	}
 
 	@Override
-	public Cone orderCone(Flavor[] balls) {
-		PriceList pl = new PriceList();
-		Cone cone = new Cone();
-		Flavor[] flav = { Flavor.BANANA, Flavor.CHOCOLATE, Flavor.LEMON, Flavor.MOKKA, Flavor.MOKKA, Flavor.PISTACHE,
-				Flavor.STRACIATELA, Flavor.STRAWBERRY, Flavor.VANILA };
-		for (Flavor f : Flavor.values()) {
-			double x =  pl.getBallPrice()-f.getbasicValue();
-			totalProfit += x;
+	public Cone orderCone(Flavor[] flavorType) {
+	//	PriceList pl = new PriceList();
+	//	Cone cone = new Cone();
+	//	Flavor[] flav = { Flavor.BANANA, Flavor.CHOCOLATE, Flavor.LEMON, Flavor.MOKKA, Flavor.MOKKA, Flavor.PISTACHE,
+		//		Flavor.STRACIATELA, Flavor.STRAWBERRY, Flavor.VANILA };
+	//	for (Flavor f : Flavor.values()) {
+	//		totalProfit += x;
+	
 
-		}
+		totalProfit += priceList.getBallPrice(flavorType);
 
-		return new Cone(balls);
+		return new Cone();
 	}
 
 	@Override
-	public Magnum orderMagnum(MagnumType Type) {
-		PriceList pl = new PriceList();
-		Magnum magnum = new Magnum();
-		MagnumType[] mag = { MagnumType.ALPINENUTS, MagnumType.BLACKCHOCOLATE, MagnumType.MILKCHOCOLATE,
-				MagnumType.ROMANTICSTRAWBERRIES, MagnumType.WHITECHOCOLATE };
-		for (MagnumType m : MagnumType.values()) {
-			double x =  pl.getMagnumPrice(Type)- m.getBasicValue();
-			totalProfit += x;
-		}
-		return new Magnum(Type);
+	public Magnum orderMagnum(MagnumType type) {
+		 
+		totalProfit += priceList.getMagnumPrice(type);
+
+		
+		return new Magnum(type);
 	}
 
 	@Override

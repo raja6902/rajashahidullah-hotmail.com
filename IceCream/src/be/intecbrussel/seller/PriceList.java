@@ -1,5 +1,6 @@
 package be.intecbrussel.seller;
 
+import be.intecbrussel.eatables.Cone;
 import be.intecbrussel.eatables.Cone.Flavor;
 import be.intecbrussel.eatables.Magnum.MagnumType;
 
@@ -31,44 +32,15 @@ public class PriceList {
 	}
 
 	public double getMagnumPrice(MagnumType magnumType) {
-		double magnumPrice = magnumStandardPrice;
-		switch (magnumType) {
-		case ALPINENUTS:
-			magnumPrice += 2.5;
-			break;
-		case WHITECHOCOLATE:
-			magnumPrice += 1.00;
-			break;
-		case MILKCHOCOLATE:
-			magnumPrice += 1.00;
-			break;
-
-		default:
-			magnumPrice += 0.90;
-		}
+	 
+		double magnumPrice = magnumStandardPrice+ magnumType.getBasicValue();
 		return magnumPrice;
 	}
 
-	public double getBallPrice() {
-		double conePrice = ballPrice;
-		for (Flavor flavour : Flavor.values()) {
-			switch (flavour) {
-			case BANANA:
-				conePrice += 1.5;
-				break;
-			case CHOCOLATE:
-				conePrice += 1.00;
-				break;
-			case MOKKA:
-				conePrice += 1.00;
-				break;
-
-			default:
-				conePrice += 0.95;
-			}
-
-		}
-		return conePrice;
+	public double getBallPrice(Flavor[] flavorType) {
+	  
+		double conePrice = ballPrice + flavorType.length;
+		return ballPrice;
 	}
 
 	public double getrocketPrice() {
@@ -76,4 +48,6 @@ public class PriceList {
 		price += 0.55;
 		return price;
 	}
-}
+
+	 
+	}

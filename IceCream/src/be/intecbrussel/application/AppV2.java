@@ -13,10 +13,13 @@ public class AppV2 {
 		Stock st = new Stock();
 		IceCreamCar icc = new IceCreamCar(st);
 		 
-		st.setIceRocket(0);
+		st.setIceRocket(3);
 		icc.orderIceRocket();
+		st.setIceRocket(2);
 		icc.orderIceRocket();
+		st.setIceRocket(1);
 	    icc.orderIceRocket();
+	    st.setIceRocket(0);
 		icc.orderIceRocket();
 		
 		
