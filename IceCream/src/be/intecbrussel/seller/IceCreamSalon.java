@@ -22,13 +22,6 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 
 	@Override
 	public Cone orderCone(Flavor[] flavorType) {
-	//	PriceList pl = new PriceList();
-	//	Cone cone = new Cone();
-	//	Flavor[] flav = { Flavor.BANANA, Flavor.CHOCOLATE, Flavor.LEMON, Flavor.MOKKA, Flavor.MOKKA, Flavor.PISTACHE,
-		//		Flavor.STRACIATELA, Flavor.STRAWBERRY, Flavor.VANILA };
-	//	for (Flavor f : Flavor.values()) {
-	//		totalProfit += x;
-	
 
 		totalProfit += priceList.getBallPrice(flavorType);
 
@@ -37,10 +30,9 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 
 	@Override
 	public Magnum orderMagnum(MagnumType type) {
-		 
+
 		totalProfit += priceList.getMagnumPrice(type);
 
-		
 		return new Magnum(type);
 	}
 
@@ -51,8 +43,9 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 		totalProfit += 1.00;
 		return new IceRocket();
 	}
+
 	@Override
-	public String toString(){
+	public String toString() {
 		return String.format(" the profit is € %.3f   ", totalProfit);
-}
+	}
 }

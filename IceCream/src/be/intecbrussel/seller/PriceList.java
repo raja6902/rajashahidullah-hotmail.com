@@ -32,14 +32,17 @@ public class PriceList {
 	}
 
 	public double getMagnumPrice(MagnumType magnumType) {
-	 
-		double magnumPrice = magnumStandardPrice+ magnumType.getBasicValue();
-		return magnumPrice;
+
+		 magnumStandardPrice += magnumType.getBasicValue();
+		return magnumStandardPrice;
 	}
 
 	public double getBallPrice(Flavor[] flavorType) {
-	  
-		double conePrice = ballPrice + flavorType.length;
+		for (int i = 0; i < flavorType.length; i++) {
+                
+			ballPrice += flavorType[i].getbasicValue();
+
+		}
 		return ballPrice;
 	}
 
@@ -49,5 +52,4 @@ public class PriceList {
 		return price;
 	}
 
-	 
-	}
+}
