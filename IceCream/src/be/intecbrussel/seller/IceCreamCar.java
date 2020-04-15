@@ -32,7 +32,7 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	    Flavor.STRACIATELA, Flavor.STRAWBERRY, Flavor.VANILA };
 		for (Flavor f : flav) {
 		PriceList pl = new PriceList();
-		double x =   pl.getBallPrice()-f.getbasicValue();
+		double x =   pl.getBallPrice(balls)-f.getbasicValue();
 		profit += x;
 		
 		Cone cone = new Cone();
