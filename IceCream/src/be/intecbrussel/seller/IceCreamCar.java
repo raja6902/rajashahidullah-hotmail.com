@@ -28,14 +28,13 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 
 	@Override
 	public Cone orderCone(Flavor[] balls) {
-		Flavor[] flav = { Flavor.BANANA, Flavor.CHOCOLATE, Flavor.LEMON, Flavor.MOKKA, Flavor.MOKKA, Flavor.PISTACHE,
-	    Flavor.STRACIATELA, Flavor.STRAWBERRY, Flavor.VANILA };
-		for (Flavor f : flav) {
+  
+		for (Flavor f : balls) {
 		PriceList pl = new PriceList();
 		double x =   pl.getBallPrice(balls)-f.getbasicValue();
+			
 		profit += x;
 		
-		Cone cone = new Cone();
 		
 
 			if (stock.getCones() < 1) {
@@ -49,7 +48,7 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 
 		}
 		
-		return new Cone();
+		return new Cone(balls);
 
 	}
 
