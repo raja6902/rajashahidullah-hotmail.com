@@ -25,7 +25,7 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 
 		totalProfit += priceList.getBallPrice(flavorType);
 
-		return new Cone();
+		return new Cone(flavorType);
 	}
 
 	@Override

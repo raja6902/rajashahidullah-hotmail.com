@@ -13,23 +13,27 @@ import be.intecbrussel.seller.PriceList;
 public class AppV1 {
 
 	public static void main(String[] args) {
-		PriceList pl= new  PriceList(6.00,7.00,8.50);
+		PriceList pl= new  PriceList(1.00,1.00,1.00);
 		
 		IceCreamSalon ics = new IceCreamSalon(pl);
-		Cone.Flavor[]  flavours= { Flavor.BANANA, Flavor.CHOCOLATE, Flavor.MOKKA}; 
-		Magnum magnum = ics.orderMagnum(MagnumType.ALPINENUTS);
-		                  ics.orderMagnum(MagnumType.MILKCHOCOLATE);
+		  
+		
+		 Eatable icc1= ics.orderMagnum(MagnumType.ALPINENUTS);
+		 Eatable icc2=ics.orderMagnum(MagnumType.MILKCHOCOLATE);
+		 Eatable icc3 = ics.orderIceRocket();
+		 Eatable icc4 = ics.orderCone(new Flavor[] {Flavor.LEMON});
+		 Eatable[] iccs = { icc1,icc2,icc3,icc4 };
+		 icc1.eat();
+		 icc2.eat();
+		 icc3.eat();
+		 icc4.eat();
 		                  
-		    magnum.eat();  // Flavor chosen randomly 
-		    magnum.eat();
-		    Cone cone = new Cone();
-		    cone.eat();
-		    cone.eat();
+		    
 		    System.out.println("-----------------------------------");
 		    ics.orderIceRocket();
 		    ics.orderIceRocket();
 		    ics.orderIceRocket();
-		    ics.orderCone(flavours.clone());
+		    
 		    ics.orderMagnum(MagnumType.ALPINENUTS);
 		    ics.orderMagnum(MagnumType.MILKCHOCOLATE);
 		    ics.getProfit(); 

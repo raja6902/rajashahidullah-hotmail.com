@@ -1,5 +1,6 @@
 package be.intecbrussel.eatables;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Cone implements Eatable {
@@ -25,14 +26,15 @@ public class Cone implements Eatable {
   @Override
   public void eat() {
 	  
-	  System.out.println("I am eating" + " " + this.balls + getBalls());
+	  System.out.println("I am eating" + " " + Arrays.toString(this.getBalls()));
 	  
   }
 public Flavor[] getBalls() {
-	return balls;
+	return this.balls;
 }
 
 }
+
   
   
   

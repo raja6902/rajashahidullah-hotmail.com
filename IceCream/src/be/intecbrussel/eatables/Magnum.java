@@ -1,5 +1,6 @@
 package be.intecbrussel.eatables;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Magnum implements Eatable{
@@ -27,7 +28,7 @@ public class Magnum implements Eatable{
 	}
 	@Override
 	public void eat() {
-		System.out.println("I am eating" + getType());
+		System.out.println("I am eating"+ " " + getType());
 		
 	
 		
