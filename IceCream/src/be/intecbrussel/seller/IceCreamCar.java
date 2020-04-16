@@ -21,61 +21,57 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 
 	private Cone prepareCone(Flavor[] balls) {
 
-		System.out.println("Ice cream being prepared");
+		System.out.println("Sorry! No more icecream");
 
 		return new Cone(balls);
 	}
 
 	@Override
 	public Cone orderCone(Flavor[] balls) {
-		try {
-			for (Flavor f : balls) {
-				PriceList pl = new PriceList();
-				double x = pl.getBallPrice(balls) - f.getbasicValue();
+		int oldStockCone = stock.getCones();
+		int newStockCone = oldStockCone - 1;
+		stock.setCones(oldStockCone);
 
-				profit += x;
+		try {
+			profit += priceList.getBallPrice(balls);
+			if (stock.getCones() < 1) {
+
+				return prepareCone(balls);
+
 			}
 
 		} catch (NoMoreIceCreamException e) {
 			e.printStackTrace();
-			return prepareCone(balls);
 
 		}
-
-		 
 
 		return new Cone(balls);
 
 	}
 
 	private Magnum prepareMagnum(MagnumType type) {
-		System.out.println("ice cream being prepared");
+		System.out.println("Sorry! No more icecream!");
 
 		return new Magnum(type);
 	}
 
 	public Magnum orderMagnum(MagnumType type) {
-    try {
-		PriceList pl = new PriceList();
-		for (MagnumType mag : MagnumType.values()) {
+		int oldStockMagnum = stock.getMagni();
+		int newStockMagnum = oldStockMagnum - 1;
+		stock.setMagni(oldStockMagnum);
+		
+		profit += priceList.getMagnumPrice(type);
+		try {
+			
+			if (stock.getMagni() < 1) {
+				return prepareMagnum(type);
 
-			double x = pl.getMagnumPrice(type) - mag.getBasicValue();
-			profit += x;
-		}
-		}catch(NoMoreIceCreamException e) {
+			}
+		} catch (NoMoreIceCreamException e) {
 			e.printStackTrace();
-			return prepareMagnum(type);
 		}
-		
-		 
-		
-
-		
-
-    
 
 		return new Magnum(type);
-    
 
 	}
 
@@ -86,24 +82,28 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	}
 
 	private IceRocket prepareRocket() {
-		System.out.println("Sorry no more ice Rocket !");
+		System.out.println("Sorry no more iceRocket !");
 
 		return new IceRocket();
 	}
 
 	@Override
 	public IceRocket orderIceRocket() {
-		profit += 0.50;
-		PriceList pl = new PriceList();
-		Stock st = new Stock();
-		if(st.getIceRocket()<0) {
-	
+		int oldStockiceRocket = stock.getIceRocket();
+		int newStockIceRocket = oldStockiceRocket - 1;
+		stock.setIceRocket(oldStockiceRocket);
+		
+		profit += 1.00;
+		try {
 
-			return prepareRocket();
+			if (stock.getIceRocket() < 1) {
+				return prepareRocket();
+			}
+		} catch (NoMoreIceCreamException e) {
+			e.printStackTrace();
 		}
-             return new IceRocket();
-	
 
-}
-}
+		return new IceRocket();
 
+	}
+}

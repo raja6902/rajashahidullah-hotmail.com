@@ -22,7 +22,7 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 
 	@Override
 	public Cone orderCone(Flavor[] flavorType) {
-
+		
 		totalProfit += priceList.getBallPrice(flavorType);
 
 		return new Cone(flavorType);
@@ -38,7 +38,7 @@ public class IceCreamSalon implements Profitable, IceCreamSeller {
 
 	@Override
 	public IceRocket orderIceRocket() {
-		Stock stock = new Stock();
+		
 
 		totalProfit += 1.00;
 		return new IceRocket();
