@@ -11,11 +11,10 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	private Stock stock;
 	private double profit;
 
-	 
-public IceCreamCar() {
-		
+	public IceCreamCar() {
+
 	}
-	
+
 	public IceCreamCar(PriceList priceList, Stock stock) {
 		this.priceList = priceList;
 		this.stock = stock;
@@ -31,44 +30,46 @@ public IceCreamCar() {
 	@Override
 	public Cone orderCone(Flavor[] balls) {
 
-		profit += priceList.getBallPrice(balls);
-		if (stock.getCones() < 1) {
+		if (stock.getCones() > 1) {
 
-			return prepareCone(balls);
-
-		} else {
+			profit += priceList.getBallPrice(balls);
 			int oldStockCone = stock.getCones();
 			int newStockCone = oldStockCone - 1;
 			stock.setCones(newStockCone);
 
-		}
+			return new Cone(balls);
 
-		return new Cone(balls);
+		} else {
+
+			return prepareCone(balls);
+		}
 
 	}
 
 	private Magnum prepareMagnum(MagnumType type) {
 		System.out.println("Sorry! No more icecream!");
 
-		return new Magnum(type);
+		return new Magnum();
 	}
 
 	public Magnum orderMagnum(MagnumType type) {
 
-		profit += priceList.getMagnumPrice(type);
+		if (stock.getMagni() > 1) {
 
-		if (stock.getMagni() < 1) {
-			
-			return prepareMagnum(type);
-
-		} else {
+			profit += priceList.getMagnumPrice(type);
+			// stock.setMagni(stock.getMagni() - 1);
 			int oldStockmagni = stock.getMagni();
 			int newStockmagni = oldStockmagni - 1;
 			stock.setMagni(newStockmagni);
+			return new Magnum(type);
+
+		} else {
+
+			return prepareMagnum(type);
+			
+			
 
 		}
-
-		return new Magnum(type);
 
 	}
 
@@ -78,36 +79,45 @@ public IceCreamCar() {
 
 	}
 
-	private IceRocket prepareRocket() {
+	private IceRocket prepareIceRocket() {
+		
 		System.out.println("Sorry no more iceRocket !");
-
-		return null;
-	}
+	
+		return new IceRocket();
+		}
 
 	@Override
 	public IceRocket orderIceRocket() {
 		
 		
-		
+	
 
-		profit += 1.00;
+		if (stock.getIceRocket() > 1) {
 
-		if (stock.getIceRocket() < 1) {
-			
-		
-			System.out.println("No more Icecream");
-			prepareRocket();
-		}else {
+			profit += 1.00;
+			                                                             // stock.setIceRocket(stock.getIceRocket() - 1);
 			int oldStockiceRocket = stock.getIceRocket();
 			int newStockiceRocket = oldStockiceRocket - 1;
-			stock.setIceRocket(newStockiceRocket);
+			  stock.setIceRocket(newStockiceRocket);
+
+			return new IceRocket();
+
+		} else {
+
+			   
+			 return prepareIceRocket();
+			 
 		}
 
-		return new IceRocket();
+	}
+
+	public Stock getStock() {
+		return stock;
 
 	}
-	public Stock getStock() {
-		return this.stock;
+	        
+	        
+	    }
 	 
-	}
-}
+	 
+

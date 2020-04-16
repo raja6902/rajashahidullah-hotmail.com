@@ -21,7 +21,7 @@ public class Stock extends Exception {
 	}
 
 	public void setIceRocket(int iceRocket) {
-		iceRocket = iceRocket;
+		this.iceRocket = iceRocket;
 	}
 
 	public int getCones() {
