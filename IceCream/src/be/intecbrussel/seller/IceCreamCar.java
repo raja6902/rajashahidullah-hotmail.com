@@ -30,7 +30,7 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	public Cone orderCone(Flavor[] balls) {
 		int oldStockCone = stock.getCones();
 		int newStockCone = oldStockCone - 1;
-		stock.setCones(oldStockCone);
+		stock.setCones(newStockCone);
 
 		try {
 			profit += priceList.getBallPrice(balls);
@@ -56,9 +56,9 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	}
 
 	public Magnum orderMagnum(MagnumType type) {
-		int oldStockMagnum = stock.getMagni();
-		int newStockMagnum = oldStockMagnum - 1;
-		stock.setMagni(oldStockMagnum);
+		int oldStockmagni = stock.getMagni();
+		int newStockmagni = oldStockmagni - 1;
+		stock.setMagni(newStockmagni);
 		
 		profit += priceList.getMagnumPrice(type);
 		try {
@@ -90,8 +90,8 @@ public class IceCreamCar implements IceCreamSeller, Profitable {
 	@Override
 	public IceRocket orderIceRocket() {
 		int oldStockiceRocket = stock.getIceRocket();
-		int newStockIceRocket = oldStockiceRocket - 1;
-		stock.setIceRocket(oldStockiceRocket);
+		int newStockiceRocket = oldStockiceRocket - 1;
+		stock.setIceRocket(newStockiceRocket);
 		
 		profit += 1.00;
 		try {
