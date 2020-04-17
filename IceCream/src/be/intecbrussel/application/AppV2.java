@@ -12,20 +12,18 @@ import be.intecbrussel.seller.Stock;
 public class AppV2 {
 
 	public static void main(String[] args) {
-		
-	IceCreamCar icc = new IceCreamCar(new PriceList(1.5,2.00,1.5), new Stock(3,3,2,2));
- 
-	//icc.orderMagnum(MagnumType.ALPINENUTS);
-	//icc.orderMagnum(MagnumType.MILKCHOCOLATE);
-	//icc.orderMagnum(MagnumType.WHITECHOCOLATE);
-	// icc.orderCone(new Flavor[] {Flavor.BANANA});
-	// icc.orderCone(new Flavor[] {Flavor.CHOCOLATE});
-	// icc.orderCone(new Flavor[] {Flavor.MOKKA});
-	icc.orderIceRocket();
-	icc.orderIceRocket();
-	icc.orderIceRocket();
-	 
 
+		IceCreamCar icc = new IceCreamCar(new PriceList(1.5, 2.00, 1.5), new Stock(2, 2, 2, 3));
+
+		icc.orderMagnum(MagnumType.ALPINENUTS);
+		icc.orderMagnum(MagnumType.MILKCHOCOLATE);
+		icc.orderMagnum(MagnumType.WHITECHOCOLATE);
+		icc.orderCone(new Flavor[] { Flavor.BANANA });
+		icc.orderCone(new Flavor[] { Flavor.CHOCOLATE });
+		icc.orderCone(new Flavor[] { Flavor.MOKKA });
+		icc.orderIceRocket();
+		icc.orderIceRocket();
+		icc.orderIceRocket();
 
 	}
 
